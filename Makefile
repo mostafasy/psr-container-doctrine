@@ -1,7 +1,9 @@
 ifdef CI
 	DOCKER_PHP_EXEC :=
+	DOCKER_BUILD :=
 else
 	DOCKER_PHP_EXEC := docker compose run --rm php
+	DOCKER_BUILD := docker compose build --pull
 endif
 
 SRCS := $(shell find ./src ./test -type f)
@@ -16,7 +18,7 @@ help:
 	printf "USER_ID=%s\nGROUP_ID=%s\n" `id --user "${USER}"` `id --group "${USER}"` > .env
 
 vendor: .env docker-compose.yml Dockerfile composer.json
-	docker compose build --pull
+	$(DOCKER_BUILD)
 	$(DOCKER_PHP_EXEC) composer update
 	$(DOCKER_PHP_EXEC) composer bump
 	touch --no-create $@

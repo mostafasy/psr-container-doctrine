@@ -2,27 +2,24 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
-## 5.7.0 - TBD
+## 5.7.0 - 2025-01-28
 
-### Added
 
-- Nothing.
+-----
 
-### Changed
+### Release Notes for [5.7.0](https://github.com/Roave/psr-container-doctrine/milestone/54)
 
-- Nothing.
+Feature release (minor)
 
-### Deprecated
+### 5.7.0
 
-- Nothing.
+- Total issues resolved: **0**
+- Total pull requests resolved: **1**
+- Total contributors: **1**
 
-### Removed
+#### renovate
 
-- Nothing.
-
-### Fixed
-
-- Nothing.
+ - [146: Update dependency vimeo/psalm to v6](https://github.com/Roave/psr-container-doctrine/pull/146) thanks to @renovate[bot]
 
 ## 5.6.0 - 2025-01-21
 

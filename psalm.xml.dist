@@ -4,6 +4,7 @@
         xmlns="https://getpsalm.org/schema/config"
         xsi:schemaLocation="https://getpsalm.org/schema/config ./vendor/vimeo/psalm/config.xsd"
         findUnusedPsalmSuppress="true"
+        errorBaseline="psalm-baseline.xml"
 >
     <projectFiles>
         <directory name="src" />
@@ -15,31 +16,4 @@
     <plugins>
         <pluginClass class="Psalm\PhpUnitPlugin\Plugin"/>
     </plugins>
-    <issueHandlers>
-        <InternalMethod>
-            <errorLevel type="suppress">
-                <!-- We consume AbstractFactory methods in the tests, but namespaces differ so Psalm complains -->
-                <directory name="test/"/>
-            </errorLevel>
-        </InternalMethod>
-        <InternalClass>
-            <errorLevel type="suppress">
-                <!-- We consume AbstractFactory methods in the tests, but namespaces differ so Psalm complains -->
-                <referencedClass name="Roave\PsrContainerDoctrine\AbstractFactory"/>
-            </errorLevel>
-        </InternalClass>
-        <DeprecatedClass>
-            <errorLevel type="suppress">
-                <referencedClass name="Doctrine\Common\Annotations\CachedReader"/>
-                <referencedClass name="Doctrine\ORM\Mapping\Driver\AnnotationDriver"/>
-                <referencedClass name="Doctrine\Persistence\Mapping\Driver\AnnotationDriver"/>
-            </errorLevel>
-        </DeprecatedClass>
-        <DeprecatedMethod>
-            <errorLevel type="suppress">
-                <referencedMethod name="Doctrine\DBAL\Configuration::setSQLLogger"/>
-                <referencedMethod name="Doctrine\DBAL\Connection::getEventManager"/>
-            </errorLevel>
-        </DeprecatedMethod>
-    </issueHandlers>
 </psalm>

@@ -10,9 +10,7 @@ use function array_key_exists;
 use function array_replace_recursive;
 use function sprintf;
 
-/**
- * @template T
- */
+/** @template T */
 abstract class AbstractFactory
 {
     /** @param non-empty-string $configKey */

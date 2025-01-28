@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="6.0.0@b8e96bb617bf59382113b1b56cef751f648a7dc9">
+  <file src="test/ConnectionFactoryTest.php">
+    <InternalMethod>
+      <code><![CDATA[addToAssertionCount]]></code>
+      <code><![CDATA[getParams]]></code>
+      <code><![CDATA[getParams]]></code>
+      <code><![CDATA[getParams]]></code>
+      <code><![CDATA[getParams]]></code>
+    </InternalMethod>
+  </file>
+  <file src="test/TestAsset/StubEventListener.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[onFlush]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+</files>

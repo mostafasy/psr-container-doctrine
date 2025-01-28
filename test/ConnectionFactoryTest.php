@@ -73,8 +73,6 @@ final class ConnectionFactoryTest extends TestCase
             }
 
             $this->fail('Exception was not raised by PDOMySql');
-
-            return;
         }
 
         $this->fail('An expected exception was not raised');

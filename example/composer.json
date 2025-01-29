@@ -4,7 +4,7 @@
         "php": "~8.2.0 || ~8.3.0 || ~8.4.0",
         "illuminate/container": "^11.41.0",
         "laminas/laminas-servicemanager": "^4.3.0",
-        "symfony/cache": "^7.2.1"
+        "symfony/cache": "^7.2.3"
     },
     "config": {
         "platform": {

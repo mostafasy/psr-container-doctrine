@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace RoaveTest\PsrContainerDoctrine;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;
 use RoaveTest\PsrContainerDoctrine\TestAsset\StubFactory;
@@ -27,9 +28,8 @@ final class AbstractFactoryTest extends TestCase
     /**
      * @param int[]          $expectedResult
      * @param int[][][]|null $config
-     *
-     * @dataProvider configProvider
      */
+    #[DataProvider('configProvider')]
     public function testRetrieveConfig(string $configKey, string $section, array $expectedResult, array|null $config = null): void
     {
         $container = $this->createMock(ContainerInterface::class);

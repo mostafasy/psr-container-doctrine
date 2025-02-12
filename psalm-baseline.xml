@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="6.0.0@b8e96bb617bf59382113b1b56cef751f648a7dc9">
+<files psalm-version="6.5.1@3f17a6b24a2dbe543e21408c2b19108cf6a355ef">
+  <file src="test/AbstractFactoryTest.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[configProvider]]></code>
+    </PossiblyUnusedMethod>
+  </file>
   <file src="test/ConnectionFactoryTest.php">
     <InternalMethod>
       <code><![CDATA[addToAssertionCount]]></code>
@@ -8,6 +13,17 @@
       <code><![CDATA[getParams]]></code>
       <code><![CDATA[getParams]]></code>
     </InternalMethod>
+  </file>
+  <file src="test/DriverFactoryTest.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[annotationDriverClassProvider]]></code>
+      <code><![CDATA[simplifiedDriverClassProvider]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/Migrations/CommandFactoryTest.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[commandClassProvider]]></code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/TestAsset/StubEventListener.php">
     <PossiblyUnusedMethod>

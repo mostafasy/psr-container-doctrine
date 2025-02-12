@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace RoaveTest\PsrContainerDoctrine;
 
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use Psr\Cache\CacheItemPoolInterface;
 use Psr\Container\ContainerInterface;
@@ -14,16 +15,14 @@ use Roave\PsrContainerDoctrine\Exception\InvalidArgumentException;
 use Roave\PsrContainerDoctrine\Exception\OutOfBoundsException;
 use stdClass;
 
-/** @coversDefaultClass \Roave\PsrContainerDoctrine\CacheFactory */
+#[CoversClass(CacheFactory::class)]
 final class CacheFactoryTest extends TestCase
 {
-    /** @covers ::__construct */
     public function testExtendsAbstractFactory(): void
     {
         self::assertInstanceOf(AbstractFactory::class, new CacheFactory());
     }
 
-    /** @covers ::createWithConfig */
     public function testThrowsForMissingConfigKey(): void
     {
         $container = $this->createContainerMockWithConfig(

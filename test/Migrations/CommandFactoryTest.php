@@ -8,6 +8,7 @@ use Doctrine\Migrations\Configuration\Migration\ConfigurationLoader;
 use Doctrine\Migrations\DependencyFactory;
 use Doctrine\Migrations\Tools\Console\Command;
 use Doctrine\ORM\EntityManagerInterface;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;
 use Roave\PsrContainerDoctrine\Exception\DomainException;
@@ -16,11 +17,8 @@ use stdClass;
 
 final class CommandFactoryTest extends TestCase
 {
-    /**
-     * @psalm-param class-string $commandClass
-     *
-     * @dataProvider commandClassProvider
-     */
+    /** @psalm-param class-string $commandClass */
+    #[DataProvider('commandClassProvider')]
     public function testReturnsCommandWhenContainerHasDependencyFactory(string $commandClass): void
     {
         $container = $this->createMock(ContainerInterface::class);
@@ -44,11 +42,8 @@ final class CommandFactoryTest extends TestCase
         self::assertInstanceOf($commandClass, $factory($container, $commandClass));
     }
 
-    /**
-     * @psalm-param class-string $commandClass
-     *
-     * @dataProvider commandClassProvider
-     */
+    /** @psalm-param class-string $commandClass */
+    #[DataProvider('commandClassProvider')]
     public function testReturnsCommandWhenContainerHasNoDependencyFactory(string $commandClass): void
     {
         $container = $this->createMock(ContainerInterface::class);

@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping\Driver;
 use Doctrine\Persistence\Mapping\Driver\FileDriver;
 use Doctrine\Persistence\Mapping\Driver\MappingDriver;
 use Doctrine\Persistence\Mapping\Driver\MappingDriverChain;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Psr\Cache\CacheItemPoolInterface;
 use Psr\Container\ContainerInterface;
@@ -69,11 +70,8 @@ final class DriverFactoryTest extends TestCase
         self::assertSame($globalBasename, $driver->getGlobalBasename());
     }
 
-    /**
-     * @psalm-param class-string<FileDriver> $driverClass
-     *
-     * @dataProvider simplifiedDriverClassProvider
-     */
+    /** @psalm-param class-string<FileDriver> $driverClass */
+    #[DataProvider('simplifiedDriverClassProvider')]
     public function testItSupportsSettingExtensionInDriversUsingSymfonyFileLocator(string $driverClass): void
     {
         $extension = '.foo.bar';
@@ -162,11 +160,8 @@ final class DriverFactoryTest extends TestCase
         ];
     }
 
-    /**
-     * @psalm-param class-string<MappingDriver> $driverClass
-     *
-     * @dataProvider annotationDriverClassProvider
-     */
+    /** @psalm-param class-string<MappingDriver> $driverClass */
+    #[DataProvider('annotationDriverClassProvider')]
     public function testItSupportsAnnotationDrivers(string $driverClass): void
     {
         $services  = [

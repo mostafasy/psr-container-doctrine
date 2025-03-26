@@ -1,9 +1,112 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="6.5.1@3f17a6b24a2dbe543e21408c2b19108cf6a355ef">
+<files psalm-version="6.9.4@e052de4275fb6cdbfedfef1d883a7e90732ea609">
+  <file src="src/Cache/NullCache.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function clear(): bool]]></code>
+      <code><![CDATA[public function commit(): bool]]></code>
+      <code><![CDATA[public function deleteItem(string $key): bool]]></code>
+      <code><![CDATA[public function deleteItems(array $keys): bool]]></code>
+      <code><![CDATA[public function getItem(string $key): CacheItemInterface]]></code>
+      <code><![CDATA[public function getItems(array $keys = []): iterable]]></code>
+      <code><![CDATA[public function hasItem(string $key): bool]]></code>
+      <code><![CDATA[public function save(CacheItemInterface $item): bool]]></code>
+      <code><![CDATA[public function saveDeferred(CacheItemInterface $item): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Cache/NullCacheItem.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function expiresAfter(int|DateInterval|null $time): static]]></code>
+      <code><![CDATA[public function expiresAt(DateTimeInterface|null $expiration): static]]></code>
+      <code><![CDATA[public function get(): mixed]]></code>
+      <code><![CDATA[public function getKey(): string]]></code>
+      <code><![CDATA[public function isHit(): bool]]></code>
+      <code><![CDATA[public function set(mixed $value): static]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/CacheFactory.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function createWithConfig(ContainerInterface $container, string $configKey): CacheItemPoolInterface]]></code>
+      <code><![CDATA[protected function getDefaultConfig(string $configKey): array]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/ConfigurationFactory.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function createWithConfig(ContainerInterface $container, string $configKey): Configuration]]></code>
+      <code><![CDATA[protected function getDefaultConfig(string $configKey): array]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/ConnectionFactory.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function createWithConfig(ContainerInterface $container, string $configKey): Connection]]></code>
+      <code><![CDATA[protected function getDefaultConfig(string $configKey): array]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/DriverFactory.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function createWithConfig(ContainerInterface $container, string $configKey): MappingDriver]]></code>
+      <code><![CDATA[protected function getDefaultConfig(string $configKey): array]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/EntityManagerFactory.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function createWithConfig(ContainerInterface $container, string $configKey): EntityManager]]></code>
+      <code><![CDATA[protected function getDefaultConfig(string $configKey): array]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/EventManagerFactory.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function createWithConfig(ContainerInterface $container, string $configKey): EventManager]]></code>
+      <code><![CDATA[protected function getDefaultConfig(string $configKey): array]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Migrations/CommandFactory.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function createWithConfig(ContainerInterface $container, string $configKey): DoctrineCommand]]></code>
+      <code><![CDATA[protected function getDefaultConfig(string $configKey): array]]></code>
+      <code><![CDATA[public function __invoke(ContainerInterface $container, string $requestedName = ''): DoctrineCommand]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Migrations/ConfigurationLoaderFactory.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function createWithConfig(ContainerInterface $container, string $configKey): ConfigurationLoader]]></code>
+      <code><![CDATA[protected function getDefaultConfig(string $configKey): array]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Migrations/DependencyFactoryFactory.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function createWithConfig(ContainerInterface $container, string $configKey): DependencyFactory]]></code>
+      <code><![CDATA[protected function getDefaultConfig(string $configKey): array]]></code>
+    </MissingOverrideAttribute>
+  </file>
   <file src="test/AbstractFactoryTest.php">
     <PossiblyUnusedMethod>
       <code><![CDATA[configProvider]]></code>
     </PossiblyUnusedMethod>
+  </file>
+  <file src="test/Cache/NullCacheTest.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function setUp(): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="test/CacheFactoryTest.php">
+    <UndefinedMethod>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturnMap]]></code>
+      <code><![CDATA[willReturnMap]]></code>
+      <code><![CDATA[willReturnMap]]></code>
+      <code><![CDATA[willReturnMap]]></code>
+      <code><![CDATA[willReturnMap]]></code>
+      <code><![CDATA[willReturnMap]]></code>
+      <code><![CDATA[willReturnMap]]></code>
+    </UndefinedMethod>
+  </file>
+  <file src="test/ConfigurationFactoryTest.php">
+    <UndefinedMethod>
+      <code><![CDATA[willReturnMap]]></code>
+      <code><![CDATA[willReturnMap]]></code>
+    </UndefinedMethod>
   </file>
   <file src="test/ConnectionFactoryTest.php">
     <InternalMethod>
@@ -13,21 +116,75 @@
       <code><![CDATA[getParams]]></code>
       <code><![CDATA[getParams]]></code>
     </InternalMethod>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function setUp(): void]]></code>
+    </MissingOverrideAttribute>
+    <UndefinedMethod>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturnCallback]]></code>
+      <code><![CDATA[willReturnCallback]]></code>
+      <code><![CDATA[willReturnCallback]]></code>
+    </UndefinedMethod>
   </file>
   <file src="test/DriverFactoryTest.php">
     <PossiblyUnusedMethod>
       <code><![CDATA[annotationDriverClassProvider]]></code>
       <code><![CDATA[simplifiedDriverClassProvider]]></code>
     </PossiblyUnusedMethod>
+    <UndefinedMethod>
+      <code><![CDATA[willReturnCallback]]></code>
+      <code><![CDATA[willReturnCallback]]></code>
+    </UndefinedMethod>
+  </file>
+  <file src="test/EventManagerFactoryTest.php">
+    <UndefinedMethod>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturnMap]]></code>
+    </UndefinedMethod>
   </file>
   <file src="test/Migrations/CommandFactoryTest.php">
     <PossiblyUnusedMethod>
       <code><![CDATA[commandClassProvider]]></code>
     </PossiblyUnusedMethod>
+    <UndefinedMethod>
+      <code><![CDATA[willReturnMap]]></code>
+      <code><![CDATA[willReturnMap]]></code>
+    </UndefinedMethod>
+  </file>
+  <file src="test/Migrations/DependencyFactoryFactoryTest.php">
+    <UndefinedMethod>
+      <code><![CDATA[willReturnMap]]></code>
+      <code><![CDATA[willReturnMap]]></code>
+      <code><![CDATA[willReturnMap]]></code>
+      <code><![CDATA[willReturnMap]]></code>
+    </UndefinedMethod>
   </file>
   <file src="test/TestAsset/StubEventListener.php">
     <PossiblyUnusedMethod>
       <code><![CDATA[onFlush]]></code>
     </PossiblyUnusedMethod>
+  </file>
+  <file src="test/TestAsset/StubEventSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function getSubscribedEvents(): array]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="test/TestAsset/StubFactory.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function createWithConfig(ContainerInterface $container, string $configKey): string]]></code>
+      <code><![CDATA[protected function getDefaultConfig(string $configKey): array]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="test/TestAsset/StubFileDriver.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function loadMappingFile($file): array]]></code>
+      <code><![CDATA[public function loadMetadataForClass($className, ClassMetadata $metadata): void]]></code>
+    </MissingOverrideAttribute>
   </file>
 </files>

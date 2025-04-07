@@ -15,13 +15,13 @@ use function assert;
 
 final class ConfigurationLoaderFactoryTest extends TestCase
 {
-    private const DIRECTORY      = 'test/TestAsset';
-    private const NS             = 'Acme\Lib\Migrations';
-    private const TABLE          = 'migrations_performed';
-    private const COLUMN         = 'version';
-    private const ALL_OR_NOTHING = true;
-    private const CHECK_PLATFORM = true;
-    private const COLUMN_LENGTH  = 42;
+    private const string DIRECTORY    = 'test/TestAsset';
+    private const string NS           = 'Acme\Lib\Migrations';
+    private const string TABLE        = 'migrations_performed';
+    private const string COLUMN       = 'version';
+    private const true ALL_OR_NOTHING = true;
+    private const true CHECK_PLATFORM = true;
+    private const int COLUMN_LENGTH   = 42;
 
     public function testExtendsAbstractFactory(): void
     {

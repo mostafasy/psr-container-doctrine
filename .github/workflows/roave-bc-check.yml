@@ -1,38 +1,30 @@
 name: BC
-
 on: [ push, pull_request ]
-
 jobs:
   roave-bc-check:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
+      - name: Setup PHP, with composer and extensions
+        uses: shivammathur/setup-php@2.36.0
         with:
-          php-version: 8.2
+          php-version: 8.4
           coverage: pcov
-          tools: composer:v2
+          tools: cs2pr
 
-      - name: Cache Composer Dependencies
-        uses: actions/cache@v4
+      - name: Cache composer dependencies
+        uses: actions/cache@v5
         with:
           path: ~/.cache/composer
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-composer-
+          restore-keys: ${{ runner.os }}-composer-
 
-      - name: Install Composer Dependencies
-        run: composer install --no-interaction --no-progress --prefer-dist
+      - name: Install dependencies
+        run: composer install --no-interaction
 
-      - name: Roave BC Check against 4.1.x
-        run: |
-          composer require --dev roave/backward-compatibility-check --no-interaction
-          vendor/bin/roave-backward-compatibility-check \
-            --from=git://github.com/mostafasy/psr-container-doctrine#4.1.x \
-            --to=./src
+      - name: Roave BC checks
+        run: make bc-check

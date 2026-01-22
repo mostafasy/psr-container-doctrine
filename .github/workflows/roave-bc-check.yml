@@ -12,14 +12,14 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup PHP, with composer and extensions
+      - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: 8.2
           coverage: pcov
-          tools: cs2pr, composer:v2
+          tools: composer:v2
 
-      - name: Cache composer dependencies
+      - name: Cache Composer Dependencies
         uses: actions/cache@v4
         with:
           path: ~/.cache/composer
@@ -27,10 +27,12 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-composer-
 
-      - name: Install dependencies
+      - name: Install Composer Dependencies
         run: composer install --no-interaction --no-progress --prefer-dist
 
-      - name: Roave BC checks against 4.1.x
-        env:
-          ROAVE_BC_BASE_REF: origin/4.1.x
-        run: make bc-check
+      - name: Roave BC Check against 4.1.x
+        run: |
+          composer require --dev roave/backward-compatibility-check --no-interaction
+          vendor/bin/roave-backward-compatibility-check \
+            --from=git://github.com/mostafasy/psr-container-doctrine#4.1.x \
+            --to=./src
